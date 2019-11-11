@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="btn_apply">申請</string>
+    <string name="btn_changeDate">日付変更</string>
+</resources>

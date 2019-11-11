@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainRelativeLayout"
+    tools:context=".MainActivity"
+    android:padding="20dp"
+    style="@style/CommonTheme">
+
+    <RelativeLayout
+        android:id="@+id/subRelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/userText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ユーザー名"
+            android:layout_marginLeft="20dp"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:id="@+id/shukkinRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userText"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <Button
+            android:id="@+id/shukkin"
+            style="@style/MainMenuSyukkinButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="0dp"
+            android:text="" />
+
+            <TextView
+                android:id="@+id/shukkinText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shukkin"
+                android:text="出勤確認"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/yukyuRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/shukkinRelativeLayout"
+            android:layout_toRightOf="@id/shukkinRelativeLayout"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+        <Button
+            android:id="@+id/yukyu"
+            style="@style/MainMenuYukyuButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="0dp"
+            android:text="" />
+
+            <TextView
+                android:id="@+id/yukyuText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/yukyu"
+                android:text="有休申請"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zangyoRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shukkinRelativeLayout"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+        <Button
+            android:id="@+id/zangyo"
+            style="@style/MainMenuZangyoButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="0dp"
+            android:text=""/>
+
+            <TextView
+                android:id="@+id/zangyoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/yukyu"
+                android:text="残業申請"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rirekiRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/zangyoRelativeLayout"
+            android:layout_below="@+id/yukyuRelativeLayout"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+        <Button
+            android:id="@+id/rireki"
+            style="@style/MainMenuRirekiButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="0dp"
+            android:text="" />
+
+            <TextView
+                android:id="@+id/rirekiText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rireki"
+                android:text="申請履歴"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

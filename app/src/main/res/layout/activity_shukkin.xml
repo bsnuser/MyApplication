@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainRelativeLayout"
+    tools:context=".MainActivity"
+    android:padding="20dp"
+    style="@style/CommonTheme"
+    >
+
+    <RelativeLayout
+        android:id="@+id/subRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        style="@style/CommonTheme">
+
+
+        <LinearLayout
+            android:id="@+id/shukkin_View"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            >
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="出勤時刻："
+            />
+
+            <TextView
+                android:id="@+id/nowDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="現在地　：" />
+
+            <TextView
+                android:id="@+id/nowPosition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shukkin_View"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/shukkinBtn"
+                style="@style/ShinseiButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/textShinsei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shukkinBtn"
+                android:gravity="center"
+                android:text="申請"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
