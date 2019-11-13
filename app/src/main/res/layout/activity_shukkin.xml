@@ -10,23 +10,6 @@
     style="@style/CommonTheme"
     >
 
-    <RelativeLayout
-        android:id="@+id/subRelativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        style="@style/CommonTheme">
-
-
-        <LinearLayout
-            android:id="@+id/shukkin_View"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical"
-            >
-
         <TextView
             android:id="@+id/textView10"
             android:layout_width="match_parent"
@@ -38,6 +21,7 @@
                 android:id="@+id/nowDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below = "@+id/textView10"
                 />
 
         <TextView
@@ -45,32 +29,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="現在地　：" />
+            android:text="現在地　："
+            android:layout_below = "@+id/nowDate"/>
 
             <TextView
                 android:id="@+id/nowPosition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="15"
+                android:layout_below = "@+id/textView11"
                 />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/shukkin_View"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:orientation="vertical">
 
             <Button
                 android:id="@+id/shukkinBtn"
                 style="@style/ShinseiButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text=""
+                android:layout_below = "@+id/nowPosition"
+                android:layout_centerHorizontal = "true"
+                />
 
             <TextView
                 android:id="@+id/textShinsei"
@@ -79,9 +57,8 @@
                 android:layout_below="@+id/shukkinBtn"
                 android:gravity="center"
                 android:text="申請"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:layout_centerHorizontal = "true"
+                />
 
-        </LinearLayout>
-
-    </RelativeLayout>
 </RelativeLayout>
