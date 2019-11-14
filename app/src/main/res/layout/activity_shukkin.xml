@@ -40,13 +40,19 @@
                 android:layout_below = "@+id/textView11"
                 />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignBottom="@+id/touch_view"
+        >
+
             <Button
                 android:id="@+id/shukkinBtn"
                 style="@style/ShinseiButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:layout_below = "@+id/nowPosition"
                 android:layout_centerHorizontal = "true"
                 />
 
@@ -60,5 +66,15 @@
                 android:textSize="20sp"
                 android:layout_centerHorizontal = "true"
                 />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/touch_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+    </FrameLayout>
 
 </RelativeLayout>

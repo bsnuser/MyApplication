@@ -169,6 +169,7 @@
                             android:layout_height="50dp"
                             android:gravity="center"
                             android:text="勤務場所　　 ："
+                            android:layout_below = "@+id/textView12"
                              />
 
                         <RadioButton
@@ -176,6 +177,8 @@
                             android:layout_width="130dp"
                             android:layout_height="wrap_content"
                             android:text="社内"
+                            android:layout_below = "@+id/textView12"
+                            android:layout_toRightOf = "@+id/textView13"
                              />
 
                         <RadioButton
@@ -183,6 +186,8 @@
                             android:layout_width="130dp"
                             android:layout_height="wrap_content"
                             android:text="社外"
+                            android:layout_below = "@+id/textView12"
+                            android:layout_toRightOf = "@+id/shanai"
                              />
 
                         <TextView
@@ -191,12 +196,15 @@
                             android:layout_height="50dp"
                             android:gravity="center"
                             android:text="休憩1開始時間："
+                            android:layout_below = "@+id/textView13"
                              />
 
                         <Spinner
                             android:id="@+id/kyukei1_start_hour"
                             android:layout_width="100dp"
                             android:layout_height="40dp"
+                            android:layout_below = "@+id/textView13"
+                            android:layout_toRightOf = "@+id/textView14"
                              />
 
                         <TextView
@@ -205,6 +213,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="時"
+                            android:layout_below = "@+id/textView13"
+                            android:layout_toRightOf = "@+id/kyukei1_start_hour"
                              />
 
                         <Spinner
@@ -212,6 +222,8 @@
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView13"
+                            android:layout_toRightOf = "@+id/textView25"
                              />
 
                         <TextView
@@ -220,6 +232,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="分"
+                            android:layout_below = "@+id/textView13"
+                            android:layout_toRightOf = "@+id/kyukei1_start_minite"
                              />
 
                         <TextView
@@ -228,6 +242,7 @@
                             android:layout_height="50dp"
                             android:gravity="center"
                             android:text="休憩1終了時間："
+                            android:layout_below = "@+id/textView14"
                              />
 
                         <Spinner
@@ -235,6 +250,8 @@
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView14"
+                            android:layout_toRightOf = "@+id/textView15"
                              />
 
                         <TextView
@@ -243,6 +260,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="時"
+                            android:layout_below = "@+id/textView14"
+                            android:layout_toRightOf = "@+id/kyukei1_end_hour"
                              />
 
                         <Spinner
@@ -250,6 +269,8 @@
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView14"
+                            android:layout_toRightOf = "@+id/textView5"
                              />
 
                         <TextView
@@ -258,6 +279,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="分"
+                            android:layout_below = "@+id/textView14"
+                            android:layout_toRightOf = "@+id/kyukei1_end_minite"
                              />
 
                         <TextView
@@ -266,6 +289,7 @@
                             android:layout_height="50dp"
                             android:gravity="center"
                             android:text="休憩2開始時間："
+                            android:layout_below = "@+id/textView15"
                              />
 
                         <Spinner
@@ -273,6 +297,8 @@
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView15"
+                            android:layout_toRightOf = "@+id/textView21"
                              />
 
                         <TextView
@@ -281,6 +307,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="時"
+                            android:layout_below = "@+id/textView15"
+                            android:layout_toRightOf = "@+id/kyukei2_start_hour"
                              />
 
                         <Spinner
@@ -289,6 +317,8 @@
                             android:layout_height="40dp"
                             android:layout_marginRight="1dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView15"
+                            android:layout_toRightOf = "@+id/textView29"
                              />
 
                         <TextView
@@ -297,6 +327,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="分"
+                            android:layout_below = "@+id/textView15"
+                            android:layout_toRightOf = "@+id/kyukei2_start_minite"
                              />
 
                         <TextView
@@ -305,6 +337,7 @@
                             android:layout_height="50dp"
                             android:gravity="center"
                             android:text="休憩2終了時間："
+                            android:layout_below = "@+id/textView21"
                              />
 
                         <Spinner
@@ -312,6 +345,8 @@
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView21"
+                            android:layout_toRightOf = "@+id/textView28"
                             />
 
 
@@ -321,6 +356,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="時"
+                            android:layout_below = "@+id/textView21"
+                            android:layout_toRightOf = "@+id/kyukei2_end_hour"
                              />
 
                         <Spinner
@@ -329,6 +366,8 @@
                             android:layout_height="40dp"
                             android:layout_marginRight="1dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView21"
+                            android:layout_toRightOf = "@+id/textView30"
                              />
 
                         <TextView
@@ -337,6 +376,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="分"
+                            android:layout_below = "@+id/textView21"
+                            android:layout_toRightOf = "@+id/kyukei2_end_minite"
                              />
 
                         <TextView
@@ -345,6 +386,7 @@
                             android:layout_height="50dp"
                             android:gravity="center"
                             android:text="休憩3開始時間："
+                            android:layout_below = "@+id/textView28"
                              />
 
                         <Spinner
@@ -352,6 +394,8 @@
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView28"
+                            android:layout_toRightOf = "@+id/textView27"
                             />
 
                         <TextView
@@ -360,6 +404,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="時"
+                            android:layout_below = "@+id/textView28"
+                            android:layout_toRightOf = "@+id/kyukei3_start_hour"
                              />
 
                         <Spinner
@@ -368,6 +414,8 @@
                             android:layout_height="40dp"
                             android:layout_marginRight="1dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView28"
+                            android:layout_toRightOf = "@+id/textView23"
                             />
 
                         <TextView
@@ -376,6 +424,9 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="分"
+                            android:layout_below = "@+id/textView28"
+                            android:layout_toRightOf = "@+id/kyukei3_start_minite"
+
                              />
 
                         <TextView
@@ -384,6 +435,7 @@
                             android:layout_height="50dp"
                             android:gravity="center"
                             android:text="休憩3終了時間："
+                            android:layout_below = "@+id/textView27"
                              />
 
                         <Spinner
@@ -391,6 +443,8 @@
                             android:layout_width="100dp"
                             android:layout_height="40dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView27"
+                            android:layout_toRightOf = "@+id/textView22"
                             />
 
                         <TextView
@@ -399,6 +453,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="時"
+                            android:layout_below = "@+id/textView27"
+                            android:layout_toRightOf = "@+id/kyukei3_end_hour"
                              />
 
                         <Spinner
@@ -407,6 +463,8 @@
                             android:layout_height="40dp"
                             android:layout_marginRight="1dp"
                             android:spinnerMode="dialog"
+                            android:layout_below = "@+id/textView27"
+                            android:layout_toRightOf = "@+id/textView16"
                             />
 
                         <TextView
@@ -415,6 +473,8 @@
                             android:layout_height="40dp"
                             android:gravity="center"
                             android:text="分"
+                            android:layout_below = "@+id/textView27"
+                            android:layout_toRightOf = "@+id/kyukei3_end_minite"
                              />
 
                 </RelativeLayout>
@@ -426,6 +486,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="残業総時間：　９９時９９分"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_below = "@+id/zangyo_Scroll_View"
                         />
 
@@ -435,6 +497,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="休憩総時間合計："
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_below = "@+id/zangyo_all_time"
                         />
 
@@ -444,8 +508,18 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:text="実残業時間："
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_below = "@+id/kyukei_all_time"
                         />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignBottom="@+id/touch_view"
+            >
 
                 <Button
                     android:id="@+id/shinseiButton"
@@ -455,8 +529,6 @@
                     android:text=""
                     android:focusable="true"
                     android:focusableInTouchMode="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_below = "@+id/zangyo_time"
                     android:layout_centerHorizontal = "true"
                     />
 
@@ -470,6 +542,7 @@
                     android:layout_below="@+id/shinseiButton"
                     android:layout_centerHorizontal = "true"
                     />
+                </RelativeLayout>
 
 
 
