@@ -32,8 +32,6 @@
                 <Button
                     android:id="@+id/calenderstart"
                     style="@style/CalendarButtonStyle"
-                    android:layout_width="54dp"
-                    android:layout_height="36dp"
                     android:layout_below = "@+id/textView13"
                     android:layout_toRightOf = "@+id/textView17"
                      />
@@ -61,8 +59,6 @@
                 <Button
                     android:id="@+id/calenderend"
                     style="@style/CalendarButtonStyle"
-                    android:layout_width="54dp"
-                    android:layout_height="36dp"
                     android:layout_below = "@+id/textView13"
                     android:layout_toRightOf = "@+id/textView33"
                     />
