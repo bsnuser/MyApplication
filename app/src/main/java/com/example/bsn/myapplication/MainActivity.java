@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.text.SpannableStringBuilder;
 import android.view.KeyEvent;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.List;
+
+import static android.support.v7.app.AppCompatDelegate.MODE_NIGHT_NO;
+import static android.support.v7.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -81,6 +85,28 @@ public class MainActivity extends AppCompatActivity {
                     // 非同期処理の実行
                     httpTask.execute();
                 }
+            }
+        });
+
+        Button modeBtn = findViewById(R.id.button3);
+        modeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int currentMode = AppCompatDelegate.getDefaultNightMode();
+
+                if(currentMode == 2) {
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO);
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES);
+                }
+
+                Intent reIntent = getIntent();
+                overridePendingTransition(0, 0);
+                reIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+
+                overridePendingTransition(0, 0);
+                startActivity(reIntent);
             }
         });
     }

@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColor">#818181</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="CommonTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/actionBar</item>
+        <item name="android:background">#272727</item>
+    </style>
+
+    <!-- タイトルバー　（検討中：AppThemeにbackgroundを設定するとツールバーの背景色も変わってしまう-->
+    <style name="actionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">#00BFFF</item>
+    </style>
+
+    <!--ログイン画面のボタン-->
+    <style name="LoginButtonStyle" parent="MyButtonStyle">
+        <item name="android:background">@drawable/iconlogin</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+    </style>
+
+    <!--メインメニューのボタン-->
+    <style name="MainMenuSyukkinButtonStyle" parent="MyButtonStyle">
+    <item name="android:background">@drawable/iconshukkin</item>
+    </style>
+    <style name="MainMenuZangyoButtonStyle" parent="MyButtonStyle">
+        <item name="android:background">@drawable/iconzangyo</item>
+    </style>
+    <style name="MainMenuYukyuButtonStyle" parent="MyButtonStyle">
+        <item name="android:background">@drawable/iconyukyu</item>
+    </style>
+    <style name="MainMenuRirekiButtonStyle" parent="MyButtonStyle">
+        <item name="android:background">@drawable/iconrireki</item>
+    </style>
+
+    <!-- 各画面のボタン -->
+    <style name="CalendarButtonStyle" parent="MyButtonStyle">
+        <item name="android:background">@drawable/iconcalender</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">35dp</item>
+    </style>
+    <style name="ShinseiButtonStyle" parent="MyButtonStyle">
+        <item name="android:background">@drawable/iconshinsei</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+    </style>
+
+    <!-- 旧　-->
+    <!-- ボタン　基本とする -->
+    <style name="MyButtonStyle">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <!-- 申請ボタン -->
+    <style name="ApplyButtonStyle" parent="MyButtonStyle">
+        <item name="android:text">@string/btn_apply</item>
+        <item name="android:background">@drawable/btn_apply</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- 日付変更ボタン -->
+    <style name="ChangeDateButtonStyle" parent="MyButtonStyle">
+        <!-- <item name="android:text">@string/btn_changeDate</item> -->
+        <item name="android:background">@drawable/calendarholl</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>
