@@ -10,14 +10,27 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+    <!--基本-->
     <style name="CommonTheme" parent="AppTheme">
-        <item name="android:actionBarStyle">@style/actionBar</item>
-        <item name="android:background">@color/colorLightGray</item>
+        <item name="android:background">@color/colorBackGround</item>
     </style>
 
-    <!-- タイトルバー　（検討中：AppThemeにbackgroundを設定するとツールバーの背景色も変わってしまう-->
-    <style name="actionBar" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">#00BFFF</item>
+    <!--EditText-->
+    <style name="EditTextStyle" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorString</item>
+        <item name="colorControlActivated">@color/colorString</item>
+        <item name="colorPrimary">@color/colorString</item>
+        <item name="colorPrimaryDark">@color/colorString</item>
+        <item name="colorAccent">@color/colorString</item>
+        <item name="android:textColor">@color/colorString</item>
+        <item name="android:textColorHint">@color/colorString</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:editTextColor">@color/colorString</item>
+    </style>
+
+    <!--RadioButton-->
+    <style name="RadioButtonStyle" parent="AppTheme">
+        <item name="android:textColor">@color/colorString</item>
     </style>
 
     <!--ログイン画面のボタン-->

@@ -160,6 +160,7 @@
                             android:inputType="text"
                             android:layout_below = "@+id/textView7"
                             android:layout_toRightOf = "@+id/textView12"
+                            android:theme="@style/EditTextStyle"
                              />
 
                         <TextView
@@ -175,10 +176,11 @@
                             android:id="@+id/shanai"
                             android:layout_width="130dp"
                             android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView12"
+                            android:layout_toRightOf="@+id/textView13"
                             android:text="社内"
-                            android:layout_below = "@+id/textView12"
-                            android:layout_toRightOf = "@+id/textView13"
-                             />
+                            style="@style/RadioButtonStyle"
+                            />
 
                         <RadioButton
                             android:id="@+id/shagai"
@@ -187,6 +189,7 @@
                             android:text="社外"
                             android:layout_below = "@+id/textView12"
                             android:layout_toRightOf = "@+id/shanai"
+                            style="@style/RadioButtonStyle"
                              />
 
                         <TextView
