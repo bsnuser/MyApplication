@@ -94,7 +94,7 @@
 
         <Button
             android:id="@+id/button3"
-            style="@style/LoginButtonStyle"
+            style="@style/ModeButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClick"
