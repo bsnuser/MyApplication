@@ -13,10 +13,10 @@
                 <TextView
                     android:id="@+id/textView13"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
-                    android:gravity="left"
+                    android:gravity="left|center_vertical"
                     android:text="申請期間："
                     />
 
@@ -39,7 +39,7 @@
                 <TextView
                     android:id="@+id/textView34"
                     android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:gravity="center"
                     android:text="～"
                     android:layout_below = "@+id/textView13"
@@ -49,7 +49,7 @@
                 <TextView
                     android:id="@+id/textView33"
                     android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:gravity="left|center"
                     android:text=""
                     android:layout_below = "@+id/textView13"
@@ -66,17 +66,17 @@
                 <TextView
                     android:id="@+id/textView35"
                     android:layout_width="345dp"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:gravity="left|center"
                     android:text="※申請期間に休日を含む場合は、伝票を分けて申請してください。"
                     android:layout_below = "@+id/textView17"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     />
 
                 <TextView
                     android:id="@+id/textView36"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:gravity="left|center"
                     android:text="区分："
                     android:layout_below = "@+id/textView35"
@@ -85,18 +85,14 @@
                 <RadioGroup
                     android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_height="50dp"
                     android:orientation="horizontal"
                     android:layout_below = "@+id/textView36">
 
                     <RadioButton
                         android:id="@+id/tsujo"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:layout_weight="1"
                         android:text="通常有給"
                         style="@style/RadioButtonStyle"
@@ -105,7 +101,7 @@
                     <RadioButton
                         android:id="@+id/gozen"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:layout_weight="1"
                         android:text="午前休"
                         style="@style/RadioButtonStyle"/>
@@ -113,7 +109,7 @@
                     <RadioButton
                         android:id="@+id/gogo"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:layout_weight="1"
                         android:text="午後休"
                         style="@style/RadioButtonStyle"/>
@@ -123,7 +119,7 @@
                 <TextView
                     android:id="@+id/textView42"
                     android:layout_width="104dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:gravity="left|center"
                     android:text="申請理由："
                     android:layout_below = "@+id/radioGroup"
@@ -132,7 +128,7 @@
                 <Spinner
                     android:id="@+id/the_reason"
                     android:layout_width="195dp"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:gravity="right"
                     android:spinnerMode="dialog"
                     tools:layout_width="200dp"
@@ -142,7 +138,7 @@
                 <EditText
                     android:id="@+id/reason_text"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:ems="10"
                     android:inputType="text"
                     tools:textSize="14sp"
@@ -155,7 +151,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="left|top"
                     android:text="※「その他」を選択した場合は、申請理由を入力してください。"
-                    android:layout_below = "@+id/reason_text"/>
+                    android:layout_below = "@+id/reason_text"
+                    android:layout_marginTop="10dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
