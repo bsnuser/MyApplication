@@ -71,6 +71,7 @@
                     android:text="※申請期間に休日を含む場合は、伝票を分けて申請してください。"
                     android:layout_below = "@+id/textView17"
                     android:layout_marginTop="30dp"
+                    style="@style/AccentTextStyle"
                     />
 
                 <TextView
@@ -152,7 +153,8 @@
                     android:gravity="left|top"
                     android:text="※「その他」を選択した場合は、申請理由を入力してください。"
                     android:layout_below = "@+id/reason_text"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    style="@style/AccentTextStyle"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

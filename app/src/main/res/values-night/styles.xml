@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">#C0C0C0</item>
         <item name="android:textSize">16dp</item>
     </style>
@@ -33,40 +33,45 @@
         <item name="android:textColor">@color/colorString</item>
     </style>
 
+    <!--注意書き-->
+    <style name="AccentTextStyle" parent="AppTheme">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <!--ログイン画面のボタン-->
     <style name="LoginButtonStyle" parent="MyButtonStyle">
-        <item name="android:background">@drawable/iconlogin</item>
+        <item name="android:background">@drawable/login_p</item>
         <item name="android:layout_width">64dp</item>
         <item name="android:layout_height">64dp</item>
     </style>
     <style name="ModeButtonStyle" parent="MyButtonStyle">
-        <item name="android:background">@drawable/iconmode</item>
+        <item name="android:background">@drawable/mode_p</item>
         <item name="android:layout_width">64dp</item>
         <item name="android:layout_height">64dp</item>
     </style>
 
     <!--メインメニューのボタン-->
     <style name="MainMenuSyukkinButtonStyle" parent="MyButtonStyle">
-    <item name="android:background">@drawable/iconshukkin</item>
+    <item name="android:background">@drawable/shukkin_p</item>
     </style>
     <style name="MainMenuZangyoButtonStyle" parent="MyButtonStyle">
-        <item name="android:background">@drawable/iconzangyo</item>
+        <item name="android:background">@drawable/zangyo_p</item>
     </style>
     <style name="MainMenuYukyuButtonStyle" parent="MyButtonStyle">
-        <item name="android:background">@drawable/iconyukyu</item>
+        <item name="android:background">@drawable/yukyu_p</item>
     </style>
     <style name="MainMenuRirekiButtonStyle" parent="MyButtonStyle">
-        <item name="android:background">@drawable/iconrireki</item>
+        <item name="android:background">@drawable/rireki_p</item>
     </style>
 
     <!-- 各画面のボタン -->
     <style name="CalendarButtonStyle" parent="MyButtonStyle">
-        <item name="android:background">@drawable/iconcalender</item>
+        <item name="android:background">@drawable/calendar_p</item>
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">35dp</item>
     </style>
     <style name="ShinseiButtonStyle" parent="MyButtonStyle">
-        <item name="android:background">@drawable/iconshinsei</item>
+        <item name="android:background">@drawable/shinsei_p</item>
         <item name="android:layout_width">64dp</item>
         <item name="android:layout_height">64dp</item>
     </style>
