@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HttpTask extends AsyncTask<Void, Void, List<UserInfoDTO>> {
+public class HttpTask extends AsyncTask<String, Void, List<UserInfoDTO>> {
     /**
      * コールバックインターフェース
      * メインスレッドに処理結果を引き継ぐyo
@@ -34,7 +34,11 @@ public class HttpTask extends AsyncTask<Void, Void, List<UserInfoDTO>> {
     }
 
     @Override
-    protected List<UserInfoDTO> doInBackground(Void... params) {
+    protected List<UserInfoDTO> doInBackground(String... params) {
+
+        String userId = params[0];
+        String password = params[1];
+        String textUrl;
 
         // 取得結果を全件入れておくリスト
         List<UserInfoDTO> result = new ArrayList<UserInfoDTO>();
@@ -43,7 +47,8 @@ public class HttpTask extends AsyncTask<Void, Void, List<UserInfoDTO>> {
             final int READ_TIMEOUT = 30 * 1000;
 
             // 接続先URL
-            URL url = new URL("https://bsnkintaiapp.mybluemix.net/api/usr");
+            textUrl = "https://bsnkintaiapp.mybluemix.net/api/user?userId="+ userId + "&password=" + password;
+            URL url = new URL(textUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(CONNECTION_TIMEOUT);
             conn.setReadTimeout(READ_TIMEOUT);

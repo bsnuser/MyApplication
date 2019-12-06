@@ -2,7 +2,6 @@ package com.example.bsn.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.text.SpannableStringBuilder;
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         // 非同期処理の値を引き継ぐ
                         public void loginCallBack(List<UserInfoDTO> result) {
                             // ログイン成功判定
-                            UserInfoDTO checkResult = checkLogin(userId, pass, result);
+                            UserInfoDTO checkResult = checkLogin(result);
                             // ログイン情報を格納するDTO
                             UserInfoDTO userInfo = new UserInfoDTO();
                             userInfo.setClear();
@@ -83,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                     // 非同期処理の実行
-                    httpTask.execute();
+                    httpTask.execute(userId,pass);
                 }
             }
         });
@@ -116,23 +115,20 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return ログインできたアカウントの情報
      */
-    private UserInfoDTO checkLogin(String userId, String password, List<UserInfoDTO> userInfo) {
+    private UserInfoDTO checkLogin(List<UserInfoDTO> userInfo) {
 
         // ログインに成功したアカウントの情報を格納する
         UserInfoDTO checkResult = new UserInfoDTO();
         checkResult.setClear();
-        for (int i = 0; i < userInfo.size(); i++) {
-            // ログイン成功時
-            if (userInfo.get(i).getUserId().equals(userId) && userInfo.get(i).getPassword().equals(password)) {
-                checkResult.setUserId(userId);
-                checkResult.setUserName(userInfo.get(i).getUserName());
-                checkResult.setPassword(password);
-                checkResult.setUserDeptId(userInfo.get(i).getUserDeptId());
-                checkResult.setDeleteFlg(userInfo.get(i).getDeleteFlg());
 
-                break;
-            }
+        if (userInfo.size()!=0) {
+            checkResult.setUserId(userInfo.get(0).getUserId());
+            checkResult.setUserName(userInfo.get(0).getUserName());
+            checkResult.setPassword(userInfo.get(0).getPassword());
+            checkResult.setUserDeptId(userInfo.get(0).getUserDeptId());
+            checkResult.setDeleteFlg(userInfo.get(0).getDeleteFlg());
         }
+
         return checkResult;
     }
 
