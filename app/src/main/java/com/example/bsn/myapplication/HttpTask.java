@@ -11,6 +11,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -46,6 +49,7 @@ public class HttpTask extends AsyncTask<String, Void, List<UserInfoDTO>> {
             final int CONNECTION_TIMEOUT = 30 * 1000;
             final int READ_TIMEOUT = 30 * 1000;
 
+
             // 接続先URL
             textUrl = "https://bsnkintaiapp.mybluemix.net/api/user?userId="+ userId + "&password=" + password;
             URL url = new URL(textUrl);
@@ -55,6 +59,8 @@ public class HttpTask extends AsyncTask<String, Void, List<UserInfoDTO>> {
 
             conn.setRequestMethod("GET");
             conn.connect();
+
+
             int statusCode = conn.getResponseCode();
 
             if (statusCode == HttpURLConnection.HTTP_OK) {
@@ -91,7 +97,9 @@ public class HttpTask extends AsyncTask<String, Void, List<UserInfoDTO>> {
                 bufferedReader.close();
                 inReader.close();
                 in.close();
+                conn.disconnect();
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         // 非同期処理の値を引き継ぐ
                         public void loginCallBack(List<UserInfoDTO> result) {
+
                             // ログイン成功判定
                             UserInfoDTO checkResult = checkLogin(result);
                             // ログイン情報を格納するDTO
@@ -79,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
                             else {
                                 toastDisp("ログイン失敗");
                             }
+
                         }
                     });
                     // 非同期処理の実行
                     httpTask.execute(userId,pass);
+
                 }
             }
         });

@@ -21,8 +21,8 @@ import java.util.Calendar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import java.text.SimpleDateFormat;
-import android.content.Context;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import android.view.inputmethod.InputMethodManager;
 
@@ -84,20 +84,33 @@ public class ZangyoActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
 
-                            Context context = getApplicationContext();
-                            PutRecordRequest putrecordrequest = new PutRecordRequest(context, getIntent());
-                            putrecordrequest.putRecord(PUT_KBN_ZANGYO, makeCSV());
 
-                            Toast.makeText(ZangyoActivity.this, "申請しました", Toast.LENGTH_LONG).show();
+                            // インターフェースの実装
+                            HttpTaskZangyo httpTask = new HttpTaskZangyo(new HttpTaskZangyo.AsyncTaskCallBack() {
+                                @Override
+                                // 非同期処理の値を引き継ぐ
+                                public void loginCallBack(String st) {
+                                    //Context context = getApplicationContext();
+                                    //PutRecordRequest putrecordrequest = new PutRecordRequest(context, getIntent());
+                                    //putrecordrequest.putRecord(PUT_KBN_ZANGYO, makeCSV());
 
-                            // メニュー画面へ遷移
-                            Intent intent = getIntent();
-                            UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
-                            intent = new Intent(getApplication(), MenuActivity.class);
-                            intent.putExtra("userInfo", userInfo);
-                            startActivity(intent);
+                                    Toast.makeText(ZangyoActivity.this, "申請しました", Toast.LENGTH_LONG).show();
+
+                                    // メニュー画面へ遷移
+                                    Intent intent = getIntent();
+                                    UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
+                                    intent = new Intent(getApplication(), MenuActivity.class);
+                                    intent.putExtra("userInfo", userInfo);
+                                    startActivity(intent);
+                                }
+
+                            });
+                            // 非同期処理の実行
+                            httpTask.execute(makeDTO());
+
                         }
-                    });
+
+                        });
 
                     builder.setNegativeButton("いいえ", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -105,7 +118,9 @@ public class ZangyoActivity extends AppCompatActivity {
                     });
 
                     builder.show();
+
                 }
+
             }
         });
 
@@ -115,6 +130,7 @@ public class ZangyoActivity extends AppCompatActivity {
         Calendar cl = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         textView.setText(sdf.format(cl.getTime()));
+        ZANGYO_BI = textView.getText().toString();
 
         // 「日付変更」ボタン動作設定
         // ダイアログクラスをインスタンス化し実行。.showのgetFagmentManager()は固定、tagは識別タグ
@@ -178,6 +194,33 @@ public class ZangyoActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.zangyo_date);
         textView.setText(value);
         ZANGYO_BI = value;
+    }
+
+    /**
+     * 申請内容を作成し返却する
+     * @return 申請内容
+     */
+    // 内部ストレージ出力ファイル内容作成
+    private ZangyoInfoDTO makeDTO(){
+
+        ZangyoInfoDTO zangyoInfo = new ZangyoInfoDTO();
+
+        zangyoInfo.setZangyoDate(ZANGYO_BI); // 残業日
+        zangyoInfo.setZangyoTimeFrom(ZANGYO_KAISHI_JIKAN_JI + ZANGYO_KAISHI_JIKAN_HUN); // 残業開始時間
+        zangyoInfo.setZangyoTimeTo(ZANGYO_SHURYO_JIKAN_JI + ZANGYO_SHURYO_JIKAN_HUN); // 残業終了時間
+
+        zangyoInfo.setApplyDiv("3"); //申請区分
+
+        Date date = new Date();
+        String dateStr = new SimpleDateFormat("yyyyMMddhhmmss").format(date);
+        zangyoInfo.setApplyDate(dateStr); //申請日時
+
+        // ユーザID（DTOから取得）
+        Intent intent = getIntent();
+        UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
+        zangyoInfo.setUserId(userInfo.getUserId());
+
+        return zangyoInfo;
     }
 
     /**
