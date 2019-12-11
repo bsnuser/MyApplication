@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainRelativeLayout"
+    tools:context=".MainActivity"
+    android:padding="20dp"
+    style="@style/CommonTheme"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignBottom="@+id/touch_view"
+        >
+
+            <Button
+                android:id="@+id/shukkinBtn"
+                style="@style/ShinseiButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_centerHorizontal = "true"
+                />
+
+            <TextView
+                android:id="@+id/textShinsei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shukkinBtn"
+                android:gravity="center"
+                android:text="検索（テスト）"
+                android:textSize="20sp"
+                android:layout_centerHorizontal = "true"
+                />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/touch_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+    </FrameLayout>
+
+</RelativeLayout>

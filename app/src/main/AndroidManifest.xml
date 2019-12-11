@@ -32,6 +32,9 @@
         <activity
             android:name=".YukyuActivity"
             android:label="有休申請"></activity>
+        <activity
+            android:name=".RirekiActivity"
+            android:label="申請履歴"></activity>
     </application>
 
 </manifest>

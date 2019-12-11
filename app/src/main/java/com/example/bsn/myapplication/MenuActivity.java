@@ -19,6 +19,7 @@ public class MenuActivity extends AppCompatActivity {
     private final int SHUKKIN = 0;
     private final int YUKYU = 1;
     private final int ZANGYO = 2;
+    private final int RIREKI = 3;
     private static Toast toast = null;
 
     @Override
@@ -62,6 +63,15 @@ public class MenuActivity extends AppCompatActivity {
                 sendView(ZANGYO);
             }
         });
+        // 申請履歴のボタン
+        Button rirekiBtn = findViewById(R.id.rireki);
+        rirekiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 画面遷移
+                sendView(RIREKI);
+            }
+        });
     }
 
     /**
@@ -80,9 +90,12 @@ public class MenuActivity extends AppCompatActivity {
             intent = new Intent(getApplication(), ShukkinActivity.class);
         } else if (viewCode == 1) {
             intent = new Intent(getApplication(), YukyuActivity.class);
-        } else {
+        } else if (viewCode == 2){
             intent = new Intent(getApplication(), ZangyoActivity.class);
+        }else {
+            intent = new Intent(getApplication(), RirekiActivity.class);
         }
+
         // 画面遷移時にトーストをキャンセル
         if (toast != null){
             toast.cancel();
