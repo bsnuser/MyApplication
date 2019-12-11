@@ -98,43 +98,115 @@ public class ShukkinActivity extends AppCompatActivity implements LocationListen
                         .setPositiveButton("はい", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
-                                try {
-                                    TextView textViewNowDate = (TextView)findViewById(R.id.nowDate);
-                                    String nowDate = (String)textViewNowDate.getText();
-                                    // 漢字フォーマットをスラッシュフォーマットに変換
-                                    SimpleDateFormat formatKanji = new SimpleDateFormat(DATE_PATTERN_KANJI);
-                                    Date nowDateKnji = formatKanji.parse(nowDate);
-                                    SimpleDateFormat formatSlash = new SimpleDateFormat(DATE_PATTERN_SLASH);
-                                    nowDate = formatSlash.format(nowDateKnji);
+                                // インターフェースの実装
+                                HttpTaskShukkin httpTask = new HttpTaskShukkin(new HttpTaskShukkin.AsyncTaskCallBack() {
+                                    @Override
+                                    // 非同期処理の値を引き継ぐ
+                                    public void loginCallBack(String st) {
+                                        /**
+                                        try {
 
-                                    TextView textViewNowPosition = (TextView)findViewById(R.id.nowPosition);
-                                    String nowPosition = (String)textViewNowPosition.getText();
+                                            TextView textViewNowDate = (TextView) findViewById(R.id.nowDate);
+                                            String nowDate = (String) textViewNowDate.getText();
+                                            // 漢字フォーマットをスラッシュフォーマットに変換
+                                            SimpleDateFormat formatKanji = new SimpleDateFormat(DATE_PATTERN_KANJI);
+                                            Date nowDateKnji = formatKanji.parse(nowDate);
+                                            SimpleDateFormat formatSlash = new SimpleDateFormat(DATE_PATTERN_SLASH);
+                                            nowDate = formatSlash.format(nowDateKnji);
 
-                                    sendShukinSinsei(nowDate, nowPosition);
-                                } catch (ParseException e) {
-                                    // 変換にエラーがでたらエラーダイアログ
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(ShukkinActivity.this);
-                                    builder.setMessage("エラーが発生しました")
-                                            .setPositiveButton("はい", new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int id) {
-                                                    // 何もしない
-                                                }
-                                            });
-                                    builder.show();
-                                }
-                            }
-                        })
-                        .setNegativeButton("いいえ", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // 何もしないでダイアログを閉じて、出勤確認画面へ戻る。
+                                            TextView textViewNowPosition = (TextView) findViewById(R.id.nowPosition);
+                                            String nowPosition = (String) textViewNowPosition.getText();
+
+                                            sendShukinSinsei(nowDate, nowPosition);
+                                             */
+
+                                            Toast.makeText(ShukkinActivity.this, "申請しました", Toast.LENGTH_LONG).show();
+
+                                            // メニュー画面へ遷移
+                                            Intent intent = getIntent();
+                                            UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
+                                            intent = new Intent(getApplication(), MenuActivity.class);
+                                            intent.putExtra("userInfo", userInfo);
+                                            startActivity(intent);
+
+                                        /**
+                                        } catch (Exception e) {
+                                            // 変換にエラーがでたらエラーダイアログ
+                                            AlertDialog.Builder builder = new AlertDialog.Builder(ShukkinActivity.this);
+                                            builder.setMessage("エラーが発生しました")
+                                                    .setPositiveButton("はい", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int id) {
+                                                            // 何もしない
+                                                        }
+                                                    });
+                                            builder.show();
+                                        }
+                                         */
+                                    }
+                                });
+                                // 非同期処理の実行
+                                httpTask.execute(makeDTO());
                             }
                         });
-                builder.show();
 
+                builder.setNegativeButton("いいえ", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // 何もしないでダイアログを閉じて、出勤確認画面へ戻る。
+                    }
+                });
+                builder.show();
             }
         });
+    }
 
+    /**
+     * 申請内容を作成し返却する
+     * @return 申請内容
+     */
+    // 内部ストレージ出力ファイル内容作成
+    private ShukkinInfoDTO makeDTO(){
 
+        ShukkinInfoDTO shukkinInfo = new ShukkinInfoDTO();
+
+        try {
+            TextView textViewNowDate = (TextView) findViewById(R.id.nowDate);
+            String nowDate = (String) textViewNowDate.getText();
+            // 漢字フォーマットをスラッシュフォーマットに変換
+            SimpleDateFormat formatKanji = new SimpleDateFormat(DATE_PATTERN_KANJI);
+            Date nowDateKnji = formatKanji.parse(nowDate);
+            SimpleDateFormat formatSlash = new SimpleDateFormat(DATE_PATTERN_SLASH);
+            nowDate = formatSlash.format(nowDateKnji);
+
+            TextView textViewNowPosition = (TextView) findViewById(R.id.nowPosition);
+            String nowPosition = (String) textViewNowPosition.getText();
+
+            shukkinInfo.setShukkinDate(nowDate); // 出勤時刻
+            shukkinInfo.setShukkinPlace(nowPosition); // 現在地
+
+            shukkinInfo.setApplyDiv("1"); //申請区分
+
+            Date date = new Date();
+            String dateStr = new SimpleDateFormat("yyyyMMddhhmmss").format(date);
+            shukkinInfo.setApplyDate(dateStr); //申請日時
+
+            // ユーザID（DTOから取得）
+            Intent intent = getIntent();
+            UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
+            shukkinInfo.setUserId(userInfo.getUserId());
+
+        } catch (Exception e) {
+            // 変換にエラーがでたらエラーダイアログ
+            AlertDialog.Builder builder = new AlertDialog.Builder(ShukkinActivity.this);
+            builder.setMessage("エラーが発生しました")
+                    .setPositiveButton("はい", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // 何もしない
+                        }
+                    });
+            builder.show();
+        }
+
+        return shukkinInfo;
     }
 
     private void sendShukinSinsei(String nowDate, String nowPositon) {

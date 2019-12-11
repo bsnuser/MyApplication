@@ -3,7 +3,7 @@ package com.example.bsn.myapplication;
 import java.io.Serializable;
 
 /**
- * ユーザー情報を格納するDTO
+ * 残業情報を格納するDTO
  */
 public class ZangyoInfoDTO implements Serializable {
 

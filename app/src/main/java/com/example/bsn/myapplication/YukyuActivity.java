@@ -21,6 +21,7 @@ import android.widget.Toolbar;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
@@ -68,19 +69,34 @@ public class YukyuActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
 
-                            Context context = getApplicationContext();
-                            PutRecordRequest putrecordrequest = new PutRecordRequest(context, getIntent());
-                            putrecordrequest.putRecord(PUT_KBN_YUKYU, makeCSV());
+                            // インターフェースの実装
+                            HttpTaskYukyu httpTask = new HttpTaskYukyu(new HttpTaskYukyu.AsyncTaskCallBack() {
+                                @Override
+                                // 非同期処理の値を引き継ぐ
+                                public void loginCallBack(String st) {
 
-                            Toast.makeText(YukyuActivity.this, "申請しました", Toast.LENGTH_LONG).show();
 
-                            // メニュー画面へ遷移
-                            Intent intent = getIntent();
-                            UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
-                            intent = new Intent(getApplication(), MenuActivity.class);
-                            intent.putExtra("userInfo", userInfo);
-                            startActivity(intent);
+                                    Context context = getApplicationContext();
+                                    PutRecordRequest putrecordrequest = new PutRecordRequest(context, getIntent());
+                                    putrecordrequest.putRecord(PUT_KBN_YUKYU, makeCSV());
+
+
+                                    Toast.makeText(YukyuActivity.this, "申請しました", Toast.LENGTH_LONG).show();
+
+                                    // メニュー画面へ遷移
+                                    Intent intent = getIntent();
+                                    UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
+                                    intent = new Intent(getApplication(), MenuActivity.class);
+                                    intent.putExtra("userInfo", userInfo);
+                                    startActivity(intent);
+                                }
+
+                    });
+                            // 非同期処理の実行
+                            httpTask.execute(makeDTO());
+
                         }
+
                     });
 
                     builder.setNegativeButton("いいえ", new DialogInterface.OnClickListener() {
@@ -347,6 +363,35 @@ public class YukyuActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 申請内容を作成し返却する
+     * @return 申請内容
+     */
+    // 内部ストレージ出力ファイル内容作成
+    private YukyuInfoDTO makeDTO(){
+
+        YukyuInfoDTO yukyuInfo = new YukyuInfoDTO();
+
+        yukyuInfo.setYukyuDateFrom(HIDUKE_START); // 有休期間開始日
+        yukyuInfo.setYukyuDateTo(HIDUKE_END); // 有休期間終了日
+        yukyuInfo.setYukyuDiv(Yukyu_KBN); // 有休区分
+        yukyuInfo.setYukyuReasonDiv(SHINSEI_SENTAKU); // 申請理由選択
+        yukyuInfo.setYukyuReason(SHINSEI_REASON);//申請理由
+
+        yukyuInfo.setApplyDiv("2"); //申請区分
+
+        Date date = new Date();
+        String dateStr = new SimpleDateFormat("yyyyMMddhhmmss").format(date);
+        yukyuInfo.setApplyDate(dateStr); //申請日時
+
+        // ユーザID（DTOから取得）
+        Intent intent = getIntent();
+        UserInfoDTO userInfo = (UserInfoDTO) intent.getSerializableExtra("userInfo");
+        yukyuInfo.setUserId(userInfo.getUserId());
+
+        return yukyuInfo;
     }
 
 
