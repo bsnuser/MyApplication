@@ -43,6 +43,9 @@ public class HttpTaskZangyo extends AsyncTask<ZangyoInfoDTO, Void,String> {
         String zangyoDate = params[0].getZangyoDate();
         String zangyoTimeFrom = params[0].getZangyoTimeFrom();
         String zangyoTimeTo = params[0].getZangyoTimeTo();
+        String zangyoTime = params[0].getZangyoTime();
+        String zangyoReason = params[0].getZangyoReason();
+        String zangyoPlace = params[0].getZangyoPlace();
         String applyDiv = params[0].getApplyDiv();
         String applyDate = params[0].getApplyDate();
         String userId = params[0].getUserId();
@@ -72,14 +75,24 @@ public class HttpTaskZangyo extends AsyncTask<ZangyoInfoDTO, Void,String> {
             OutputStream os = conn.getOutputStream();
             //PrintStream ps = new PrintStream(os);
 
-            String param = "zangyoDate=" + zangyoDate + "&userId=" + userId;
+            String param =
+               "zangyoDate=" + zangyoDate +
+               "&zangyoTimeFrom=" + zangyoTimeFrom +
+               "&zangyoTimeTo=" + zangyoTimeTo +
+               "&zangyoTime=" + zangyoTime +
+               "&zangyoReason=" + zangyoReason +
+               "&zangyoPlace=" + zangyoPlace +
+               "&applyDiv=" + applyDiv +
+               "&applyDate=" + applyDate +
+               "&userId=" + userId;
+
             //os.write("userId=test".getBytes());
             os.write(param.getBytes());
             //out.write("userId=test");
-            //conn.connect();
+            conn.connect();
 
             os.close();
-            //int statusCode = conn.getResponseCode();
+            int statusCode = conn.getResponseCode();
 
             conn.disconnect();
 

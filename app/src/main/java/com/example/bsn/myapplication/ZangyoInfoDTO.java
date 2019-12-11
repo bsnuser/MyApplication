@@ -10,11 +10,20 @@ public class ZangyoInfoDTO implements Serializable {
     // 残業日
     private String zangyoDate;
 
-    // 残業開始時刻
+    // 残業開始時間
     private String zangyoTimeFrom;
 
-    // 残業終了時刻
+    // 残業終了時間
     private String zangyoTimeTo;
+
+    // 実残業時間
+    private String zangyoTime;
+
+    // 申請理由
+    private String zangyoReason;
+
+    // 勤務場所
+    private String zangyoPlace;
 
     // 申請区分
     private String applyDiv;
@@ -46,6 +55,27 @@ public class ZangyoInfoDTO implements Serializable {
         this.zangyoTimeTo = zangyoTimeTo;
     }
 
+    public String getZangyoTime() {
+        return zangyoTime;
+    }
+    public void setZangyoTime(String zangyoTime) {
+        this.zangyoTime = zangyoTime;
+    }
+
+    public String getZangyoReason() {
+        return zangyoReason;
+    }
+    public void setZangyoReason(String zangyoReason) {
+        this.zangyoReason = zangyoReason;
+    }
+
+    public String getZangyoPlace() {
+        return zangyoPlace;
+    }
+    public void setZangyoPlace(String zangyoPlace) {
+        this.zangyoPlace = zangyoPlace;
+    }
+
     public String getApplyDiv() {
         return applyDiv;
     }
@@ -70,6 +100,9 @@ public class ZangyoInfoDTO implements Serializable {
         this.zangyoDate = null;
         this.zangyoTimeFrom = null;
         this.zangyoTimeTo = null;
+        this.zangyoTime = null;
+        this.zangyoReason = null;
+        this.zangyoPlace = null;
         this.applyDiv = null;
         this.applyDate = null;
         this.userId = null;

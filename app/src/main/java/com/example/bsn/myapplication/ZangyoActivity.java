@@ -208,6 +208,9 @@ public class ZangyoActivity extends AppCompatActivity {
         zangyoInfo.setZangyoDate(ZANGYO_BI); // 残業日
         zangyoInfo.setZangyoTimeFrom(ZANGYO_KAISHI_JIKAN_JI + ZANGYO_KAISHI_JIKAN_HUN); // 残業開始時間
         zangyoInfo.setZangyoTimeTo(ZANGYO_SHURYO_JIKAN_JI + ZANGYO_SHURYO_JIKAN_HUN); // 残業終了時間
+        zangyoInfo.setZangyoTime(ZITSU_ZANGYO_JIKAN);//実残業時間
+        zangyoInfo.setZangyoReason(SHINSEI_RIYU);//申請理由
+        zangyoInfo.setZangyoPlace(KINMU_BASHO);//勤務場所
 
         zangyoInfo.setApplyDiv("3"); //申請区分
 
