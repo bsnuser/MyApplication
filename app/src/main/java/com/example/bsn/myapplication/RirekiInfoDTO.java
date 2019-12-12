@@ -7,11 +7,21 @@ import java.io.Serializable;
  */
 public class RirekiInfoDTO implements Serializable {
 
+    // 区分
+    private String div;
+
     // 日（出勤申請：出勤日、有休申請：有休期間開始日、残業申請：残業日）
     private String date;
 
     // データID
     private String id;
+
+    public String getDiv() {
+        return div;
+    }
+    public void setDiv(String div) {
+        this.div = div;
+    }
 
     public String getDate() {
         return date;
@@ -29,6 +39,7 @@ public class RirekiInfoDTO implements Serializable {
 
     // ユーザー情報のクリア処理
     public void setClear(){
+        this.div = null;
         this.date = null;
         this.id = null;
     }

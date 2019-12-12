@@ -17,25 +17,12 @@
         android:layout_alignBottom="@+id/touch_view"
         >
 
-            <Button
-                android:id="@+id/shukkinBtn"
-                style="@style/ShinseiButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:layout_centerHorizontal = "true"
-                />
-
-            <TextView
-                android:id="@+id/textShinsei"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/shukkinBtn"
-                android:gravity="center"
-                android:text="検索（テスト）"
-                android:textSize="20sp"
-                android:layout_centerHorizontal = "true"
-                />
+        <ListView
+            android:id="@+id/rireki_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/colorString"
+            android:dividerHeight="1dp" />
 
     </RelativeLayout>
 
@@ -45,6 +32,8 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+
+
     </FrameLayout>
 
 </RelativeLayout>

@@ -76,12 +76,15 @@ public class HttpTaskRirekiGet extends AsyncTask<String, Void, List<RirekiInfoDT
 
                             switch (json.getString("apply_div")) {
                                 case "1": //出勤申請
+                                    rirekiInfo.setDiv("出勤");
                                     rirekiInfo.setDate(json.getString("shukkin_date"));
                                     break;
                                 case "2": //有休申請
+                                    rirekiInfo.setDiv("有休");
                                     rirekiInfo.setDate(json.getString("yukyu_date_from"));
                                     break;
                                 case "3": //残業申請
+                                    rirekiInfo.setDiv("残業");
                                     rirekiInfo.setDate(json.getString("zangyo_date"));
                                     break;
                             }
