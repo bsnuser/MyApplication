@@ -1,6 +1,5 @@
 package com.example.bsn.myapplication;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -26,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        setActionBar((Toolbar) findViewById(R.id.toolbar));
+        //setActionBar((Toolbar) findViewById(R.id.toolbar));
 
         // ユーザー情報の受け取り
         Intent intent = getIntent();
@@ -88,6 +86,7 @@ public class MenuActivity extends AppCompatActivity {
         // 各画面に遷移するためのインスタンスを生成
         if (viewCode == 0) {
             intent = new Intent(getApplication(), ShukkinActivity.class);
+            //intent = new Intent(getApplication(), BeaconActivity.class);
         } else if (viewCode == 1) {
             intent = new Intent(getApplication(), YukyuActivity.class);
         } else if (viewCode == 2){

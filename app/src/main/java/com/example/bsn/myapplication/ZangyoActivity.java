@@ -63,7 +63,7 @@ public class ZangyoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zangyo);
-        setActionBar((Toolbar)findViewById(R.id.toolbar));
+        //setActionBar((Toolbar)findViewById(R.id.toolbar));
 
         // スピナー設定
         setSpinnerValue();

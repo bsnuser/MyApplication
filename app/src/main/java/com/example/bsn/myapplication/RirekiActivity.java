@@ -27,7 +27,7 @@ public class RirekiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rireki);
-        setActionBar((Toolbar)findViewById(R.id.toolbar));
+        //setActionBar((Toolbar)findViewById(R.id.toolbar));
 
         // インターフェースの実装
         HttpTaskRirekiGet httpTask = new HttpTaskRirekiGet(new HttpTaskRirekiGet.AsyncTaskCallBack() {

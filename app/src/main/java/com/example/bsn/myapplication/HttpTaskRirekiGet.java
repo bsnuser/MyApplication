@@ -19,6 +19,7 @@ import java.util.List;
 
 
 public class HttpTaskRirekiGet extends AsyncTask<String, Void, List<RirekiInfoDTO>> {
+
     /**
      * コールバックインターフェース
      * メインスレッドに処理結果を引き継ぐyo
@@ -77,19 +78,45 @@ public class HttpTaskRirekiGet extends AsyncTask<String, Void, List<RirekiInfoDT
                             switch (json.getString("apply_div")) {
                                 case "1": //出勤申請
                                     rirekiInfo.setDiv("出勤");
-                                    rirekiInfo.setDate(json.getString("shukkin_date"));
+                                    String[] shukkinDate = json.getString("shukkin_date").split(" ");
+                                    rirekiInfo.setDate(shukkinDate[0]);
+                                    rirekiInfo.setId("出勤時間：" + shukkinDate[1]);
                                     break;
                                 case "2": //有休申請
                                     rirekiInfo.setDiv("有休");
                                     rirekiInfo.setDate(json.getString("yukyu_date_from"));
+                                    String yukyuDiv = json.getString("yukyu_div");
+                                    String yukyuName = "";
+                                    switch (yukyuDiv){
+                                        case "0":
+                                            yukyuName = "全休";
+                                            break;
+                                        case "1":
+                                            yukyuName = "AM休";
+                                            break;
+                                        case "2":
+                                            yukyuName = "PM休";
+                                            break;
+                                    }
+                                    rirekiInfo.setId("取得区分：" + yukyuName);
                                     break;
                                 case "3": //残業申請
                                     rirekiInfo.setDiv("残業");
                                     rirekiInfo.setDate(json.getString("zangyo_date"));
+                                    // 残業時間（数値にして文字列に戻す）
+                                    String zangyoTime = json.getString("zangyo_time");
+                                    Integer iZangyoTime = Integer.parseInt(zangyoTime);
+                                    zangyoTime = iZangyoTime.toString();
+                                    // 末尾が30の場合は.5に置き換え
+                                    if(zangyoTime.substring(zangyoTime.length() - 2).equals("30")){
+                                        zangyoTime = zangyoTime.replace("30",".5h");
+                                    }else{
+                                        zangyoTime = zangyoTime.replace("00", "h");
+                                    }
+                                    rirekiInfo.setId("実残業時間：" + zangyoTime);
                                     break;
                             }
 
-                            rirekiInfo.setId(json.getString("_id"));
 
                             result.add(rirekiInfo);
 
